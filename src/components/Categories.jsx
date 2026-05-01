@@ -1,55 +1,41 @@
 import { motion, AnimatePresence } from "framer-motion";
-import catFashion from "@/assets/fashion-gallery/model5.png";
-import catProduct from "@/assets/products/Screenshot 2026-04-29 111230.png";
-import catStreet from "@/assets/street/Screenshot 2026-04-29 111512.png";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { GalleryModal } from "./GalleryModal";
-
-// New Fashion Gallery Images
-import f1 from "@/assets/fashion-gallery/model1.png";
-import f2 from "@/assets/fashion-gallery/model2.png";
-import f3 from "@/assets/fashion-gallery/model3.png";
-import f4 from "@/assets/fashion-gallery/model4.png";
-
-import p1 from "@/assets/products/Screenshot 2026-04-29 111138.png";
-import p2 from "@/assets/products/Screenshot 2026-04-29 111204.png";
-import p3 from "@/assets/products/Screenshot 2026-04-29 111230.png";
-import p4 from "@/assets/products/Screenshot 2026-04-29 111248.png";
-import p5 from "@/assets/products/Screenshot 2026-04-29 111306.png";
-import p6 from "@/assets/products/Screenshot 2026-04-29 111323.png";
-
-import s1 from "@/assets/street/Screenshot 2026-04-29 111454.png";
-import s2 from "@/assets/street/Screenshot 2026-04-29 111512.png";
-import s3 from "@/assets/street/Screenshot 2026-04-29 111545.png";
-import s4 from "@/assets/street/Screenshot 2026-04-29 111603.png";
-import s5 from "@/assets/street/Screenshot 2026-04-29 111621.png";
-
-const cats = [
-  {
-    title: "Fashion",
-    img: catFashion,
-    copy: "Editorial narratives, couture, luxury campaigns.",
-    count: "",
-    galleryImages: [f1, f2, f3, f4],
-  },
-  {
-    title: "Product",
-    img: catProduct,
-    copy: "Beverages, cosmetics, commercial storytelling.",
-    count: "",
-    galleryImages: [p1, p2, p3, p4, p5, p6],
-  },
-  {
-    title: "Street",
-    img: catStreet,
-    copy: "Raw emotion, unscripted moments, real life.",
-    count: "",
-    galleryImages: [s1, s2, s3, s4, s5],
-  },
-];
+import { getCategoryImages, getCategoryPreview } from "@/lib/image-loader";
 
 export function Categories() {
   const [activeGallery, setActiveGallery] = useState(null);
+
+  const cats = useMemo(() => [
+    {
+      title: "Product",
+      img: getCategoryPreview("products"),
+      copy: "Beverages, cosmetics, commercial storytelling.",
+      count: `${getCategoryImages("products").length} Works`,
+      galleryImages: getCategoryImages("products"),
+    },
+    {
+      title: "Fashion",
+      img: getCategoryPreview("fashion"),
+      copy: "Editorial narratives, couture, luxury campaigns.",
+      count: `${getCategoryImages("fashion").length} Works`,
+      galleryImages: getCategoryImages("fashion"),
+    },
+    {
+      title: "Street",
+      img: getCategoryPreview("street"),
+      copy: "Raw emotion, unscripted moments, real life.",
+      count: `${getCategoryImages("street").length} Works`,
+      galleryImages: getCategoryImages("street"),
+    },
+    {
+      title: "Portrait",
+      img: getCategoryPreview("portrait"),
+      copy: "Human essence, character studies, soul captured.",
+      count: `${getCategoryImages("portrait").length} Works`,
+      galleryImages: getCategoryImages("portrait"),
+    },
+  ], []);
 
   return (
     <section id="categories" className="relative bg-background py-32 md:py-48">
@@ -58,16 +44,16 @@ export function Categories() {
           <div>
             <p className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">02 — Disciplines</p>
             <h2 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
-              Three languages.<br />
+              Four languages.<br />
               <span className="text-gradient-gold italic">One vision.</span>
             </h2>
           </div>
           <p className="max-w-sm text-sm text-muted-foreground">
-            Every discipline informs the next. The precision of product, the poetry of fashion, the truth of the street.
+            Every discipline informs the next. The precision of product, the poetry of fashion, the truth of the street, and the soul of the portrait.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cats.map((c, i) => (
             <CategoryCard 
               key={c.title} 

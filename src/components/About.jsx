@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import portrait from "@/assets/aboutme.jpeg";
+import portrait from "@/assets/aboutme.webp";
 
 const words =
   "I don't just capture images. I capture presence, emotion, and identity.".split(" ");

@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import f1 from "@/assets/fashion-gallery/model8.png";
-import f2 from "@/assets/fashion-gallery/Screenshot 2026-04-29 081534.png";
-import s1 from "@/assets/street/Screenshot 2026-04-29 111454.png";
-import p1 from "@/assets/products/Screenshot 2026-04-29 111138.png";
-import hero from "@/assets/hero-fashion.jpg";
-import featureNew from "@/assets/feature-new.jpeg";
+import f1 from "@/assets/fashion/model8.webp";
+import f2 from "@/assets/fashion/Screenshot 2026-04-29 081534.webp";
+import s1 from "@/assets/street/Screenshot 2026-04-29 111454.webp";
+import p1 from "@/assets/products/Screenshot 2026-04-29 111138.webp";
+import hero from "@/assets/hero-fashion.webp";
+import featureNew from "@/assets/feature-new.webp";
 
 const items = [
   { src: f1, title: "Soft Presences", subtitle: "Editorial / 2025", tag: "Fashion" },

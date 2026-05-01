@@ -20,7 +20,22 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: ["framer-motion", "lucide-react", "react", "react-dom"],
+  },
   build: {
     outDir: "dist",
+    minify: "esbuild",
+    cssMinify: true,
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "framer-motion"],
+          ui: ["lucide-react"],
+        },
+      },
+    },
   },
 });

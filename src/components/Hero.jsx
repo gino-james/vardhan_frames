@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import heroImg from "@/assets/hero-fashion.jpg";
+import heroImg from "@/assets/hero-fashion.webp";
 
 export function Hero() {
   const ref = useRef(null);
@@ -22,13 +22,14 @@ export function Hero() {
     <section ref={ref} id="top" className="relative h-screen w-full overflow-hidden bg-background bg-grain">
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0" style={{ y, scale }}>
-        <img
-          src={heroImg}
-          alt="Fashion photography by Vardhan's Viewfinder"
-          className="h-full w-full object-cover object-top opacity-70"
-          width={1920}
-          height={1280}
-        />
+          <img
+            src={heroImg}
+            alt="Fashion photography by Vardhan's Viewfinder"
+            className="h-full w-full object-cover object-top opacity-70"
+            width={1920}
+            height={1280}
+            fetchpriority="high"
+          />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
         <div className="bg-vignette absolute inset-0" />
       </motion.div>

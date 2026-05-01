@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -6,9 +7,9 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { FeaturedWork } from "@/components/FeaturedWork";
 import { Categories } from "@/components/Categories";
-import { About } from "@/components/About";
 
-import { Contact } from "@/components/Contact";
+const About = lazy(() => import("@/components/About").then(m => ({ default: m.About })));
+const Contact = lazy(() => import("@/components/Contact").then(m => ({ default: m.Contact })));
 
 export const Route = createFileRoute("/")(  {
   head: () => ({
@@ -39,9 +40,11 @@ function Index() {
       <Hero />
       <FeaturedWork />
       <Categories />
-      <About />
-
-      <Contact />
+      
+      <Suspense fallback={null}>
+        <About />
+        <Contact />
+      </Suspense>
     </main>
   );
 }

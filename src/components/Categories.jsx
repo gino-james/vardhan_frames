@@ -28,13 +28,6 @@ export function Categories() {
       count: `${getCategoryImages("street").length} Works`,
       galleryImages: getCategoryImages("street"),
     },
-    {
-      title: "Portrait",
-      img: getCategoryPreview("portrait"),
-      copy: "Human essence, character studies, soul captured.",
-      count: `${getCategoryImages("portrait").length} Works`,
-      galleryImages: getCategoryImages("portrait"),
-    },
   ], []);
 
   return (
@@ -44,16 +37,16 @@ export function Categories() {
           <div>
             <p className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">02 — Disciplines</p>
             <h2 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
-              Four languages.<br />
+              Three languages.<br />
               <span className="text-gradient-gold italic">One vision.</span>
             </h2>
           </div>
           <p className="max-w-sm text-sm text-muted-foreground">
-            Every discipline informs the next. The precision of product, the poetry of fashion, the truth of the street, and the soul of the portrait.
+            Every discipline informs the next. The precision of product, the poetry of fashion, and the truth of the street.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cats.map((c, i) => (
             <CategoryCard 
               key={c.title} 

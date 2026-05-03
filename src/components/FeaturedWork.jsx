@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import f1 from "@/assets/fashion/model8.webp";
-import f2 from "@/assets/fashion/Screenshot 2026-04-29 081534.webp";
+import f2 from "@/assets/fashion/model5.webp";
 import s1 from "@/assets/street/Screenshot 2026-04-29 111454.webp";
 import p1 from "@/assets/products/Screenshot 2026-04-29 111138.webp";
 import hero from "@/assets/hero-fashion.webp";
@@ -13,7 +13,7 @@ const items = [
   { src: p1, title: "Cold Charge", subtitle: "Hyderabad / 2025", tag: "Product" },
   { src: hero, title: "Veil Of Silence", subtitle: "Studio / 2025", tag: "Fashion" },
   { src: featureNew, title: "Golden Bloom", subtitle: "Hyderabad / 2025", tag: "Fashion & Beauty" },
-  { src: f2, title: "Heritage Grace", subtitle: "Hyderabad / 2025", tag: "Fashion" },
+  { src: f2, title: "Quiet Presence", subtitle: "Hyderabad / 2025", tag: "Fashion" },
 ];
 
 export function FeaturedWork() {

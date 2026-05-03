@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import portrait from "@/assets/aboutme.webp";
+import artistPhoto from "@/assets/aboutme.webp";
 
 const words =
   "I don't just capture images. I capture presence, emotion, and identity.".split(" ");
@@ -17,8 +17,8 @@ export function About() {
         <div className="relative md:col-span-5 md:col-start-1">
           <div className="relative aspect-[3/4] overflow-hidden">
             <motion.img
-              src={portrait}
-              alt="Vardhan — photographer portrait"
+              src={artistPhoto}
+              alt="Vardhan — photographer profile"
               loading="lazy"
               style={{ y: imgY }}
               className="absolute inset-0 h-[120%] w-full object-cover"

@@ -11,7 +11,6 @@ export const categories = {
   fashion: [],
   products: [],
   street: [],
-  portrait: [],
 };
 
 // Process images and group by folder
@@ -28,8 +27,6 @@ Object.entries(rawImages).forEach(([path, url]) => {
     categories.products.push(imageObj);
   } else if (folder === "street") {
     categories.street.push(imageObj);
-  } else if (folder === "portrait") {
-    categories.portrait.push(imageObj);
   }
 });
 
